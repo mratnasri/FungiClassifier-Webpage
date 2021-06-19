@@ -1,13 +1,6 @@
 from flask import Flask, render_template, request
 import cv2
-from numpy import mean, std
-from keras.preprocessing.image import array_to_img, img_to_array, load_img
-import keras
 import numpy as np
-import matplotlib
-matplotlib.use('agg')
-from matplotlib import pyplot as plt
-import os
 from keras.models import load_model
 import statistics
 app = Flask(__name__)
