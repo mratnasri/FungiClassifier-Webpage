@@ -61,14 +61,22 @@ def fungiClassification():
         img_crops=np.array(img_crops)
         img_crops = img_crops.reshape((img_crops.shape[0], M, N, 1))
         pred_prob = model.predict(img_crops)
-        print(pred_prob)
+        pred_prob=pred_prob*100
+        np.set_printoptions(formatter={'float_kind':"{:.2f}".format})
+        print("pred probabilities: ",pred_prob)
         #pred_class = model.predict_classes(x_test)
         pred_class = np.argmax(pred_prob, axis=-1)
+        print("pred class: ",pred_class)
+
         final_class = statistics.mode(pred_class)
+        print(final_class)
         final_class_name = labels[final_class]
+        avg_prob = np.mean(pred_prob,axis=0)
+        argsort_avg_prob=np.argsort(avg_prob)
+
 
         fig='/static/'+f.filename
-    return render_template("output.html", final_class_name=final_class_name, fig = fig)
+    return render_template("output.html", final_class_name=final_class_name, fig = fig, labels=labels,avg_prob=avg_prob,argsort_avg_prob=argsort_avg_prob)
 
 if __name__ == '__main__':
     app.run()

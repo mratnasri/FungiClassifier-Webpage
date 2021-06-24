@@ -14,10 +14,15 @@
       </center>
       </div>
     </div>
-    <div style="margin: 2%; ">
+    <div>
       <h4 align="center">The fungus in the image is: {{final_class_name}}</h4>
-      <br />
     </div>
-    
+    <div style="margin:auto; width: 60%; border: 3px solid #73AD21; padding: 10px;">
+    <div width=30% align="left">
+      <h4>The probability of {{labels[argsort_avg_prob[-1]]}} is: {{'{:.2f}'.format(avg_prob[argsort_avg_prob[-1]])}}%</h4>
+      <h4>The probability of {{labels[argsort_avg_prob[-2]]}} is: {{'{:.2f}'.format(avg_prob[argsort_avg_prob[-2]])}}%</h4>
+      <h4>The probability of {{labels[argsort_avg_prob[-3]]}} is: {{'{:.2f}'.format(avg_prob[argsort_avg_prob[-3]])}}%</h4>
+    </div>
+  </div>
   </body>
 </html>
