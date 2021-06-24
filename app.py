@@ -9,6 +9,10 @@ app = Flask(__name__)
 def upload():  
     return render_template("inputFile.html")
 
+@app.route('/about')  
+def about():  
+    return render_template("aboutUs.html")
+
 @app.route('/output', methods = ['POST'])
 def fungiClassification():
     if request.method == 'POST':

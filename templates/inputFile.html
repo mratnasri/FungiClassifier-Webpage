@@ -1,44 +1,83 @@
 <html>
   <head>
-    <title>upload</title>
+    <title>Fungi Classifier</title>
     <link
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
     />
+    <link rel="stylesheet" href="../static/style.css" />
   </head>
+  <style>
+    body {
+      background-image: url('/static/bg1.jpg');
+      background-position: center; /* Center the image */
+      background-repeat: no-repeat; /* Do not repeat the image */
+      background-size: cover; /* Resize the background image to cover the entire container */
+      background-color: rgba(255,255,255,0.5);
+    background-blend-mode: lighten;
+    }
+    </style>
   <body>
-    <h1 align="center">Fungi Classifier</h1>
-    <br />
-    <h4 align="center">
-      Upload the image which has to be checked for type of fungus (C. auris, C. krusei or C. tropicalis).
-    </h4>
-    <br />
-    <form
-      class="form-horizontal"
-      action="/output"
-      method="post"
-      enctype="multipart/form-data"
-    >
-    <div style="margin:auto; width: 30%; padding: 10px;">
-      <div class="form-group" style="padding:4%; padding-top: 2%; margin-bottom:0;">
-        
-        <div >
-          <input
-            placeholder="Upload image"
-            class="form-control"
-            id="image"
+  
+    <div style="margin: 2%;">
+      <div class="main-head">
+        <div style="margin: auto;">Fungi Classifier</div>
+      </div>
+      <br />
+      <div id="navigation">
+        <a href="/">Home</a>
+        <a href="/about">About Us</a>
+      </div>
+      <img
+        class="fit-picture"
+        src="..\static\image3.jpg"
+        alt="fungi banner"
+      />
+      <div class="sec-head" style="margin-top: 3%;">
+        <h3><strong>
+          Upload the image which has to be checked for type of fungus (C. auris, C. krusei or C. tropicalis).
+        </strong></h3>
+      </div>
+      <br />
+      <div class="box" style="padding-top: 2%; margin-top: 0%;">
+        <form
+          class="form-horizontal"
+          action="/output"
+          method="post"
+          enctype="multipart/form-data"
+        >
+          <!-- col-sm-offset-4 col-sm-3   -->
+          <div class="form-group">
+            <div class="input-box">
+              <input
+                valign="middle"
+                style="
+                  border: none;
+                  border-style: none;
+                  padding-bottom: 0%;
+                  padding-top: 3%;
+                  margin-bottom: 0%;
+                  padding-left: 2%;
+                  padding-right: auto;
+                "
+                placeholder="Upload file"
+                id="image"
             name="image"
             type="file"
             accept="image/*"
-          />
-        </div>
-      </div>
-      <div class="form-group"style="padding:4%; padding-top: 2%; margin-bottom:0;">
-        <div>
-          <button type="Submit" class="btn btn-default">Upload</button>
-        </div>
+              /><br />
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-sm-offset-5 col-sm-7">
+              <button type="Submit" class="btn btn-default butn">Upload</button>
+            </div>
+          </div>
+        </form>
       </div>
     </div>
-    </form>
+
+
+    
   </body>
 </html>
