@@ -1,9 +1,9 @@
 body {
-  background-image: url("/static/bg1.jpg");
+  background-image: url("/static/bg1_zoom.jpg");
   background-position: center; /* Center the image */
-  background-repeat: no-repeat; /* Do not repeat the image */
-  background-size: cover; /* Resize the background image to cover the entire container */
-  background-color: rgba(255, 255, 255, 0.5);
+  /* background-repeat: no-repeat;  Do not repeat the image 
+  background-size: cover;  Resize the background image to cover the entire container */
+  background-color: rgba(255, 255, 255, 0.8);
   background-blend-mode: lighten;
 }
 .main-head {
