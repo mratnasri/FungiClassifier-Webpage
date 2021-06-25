@@ -24,6 +24,7 @@ def fungiClassification():
         # Reading the image file
         M=150
         N=150
+        IMG_SHAPE = (224, 224, 1)
         img = cv2.imread('static/'+f.filename)
         #img = load_img(fn)
         img = np.array(img, dtype='uint8')
@@ -49,6 +50,7 @@ def fungiClassification():
             mask[crop <= 20] = 0
             if (cv2.countNonZero(mask) >=80/100*N*M):
                 print("true")
+                crop = cv2.resize(crop, (224, 224))
                 crop = ((crop-np.min(crop))/(np.max(crop)-np.min(crop)))*255
                 crop = crop.astype(np.uint8)
                 #i=i+1
@@ -61,9 +63,9 @@ def fungiClassification():
                 #crop = crop.astype('float32')
                 #cv2.imshow('crop',crop)
                 #cv2.waitKey(0)
-        model = load_model('Models/fungi_classifier_model1.h5')
+        model = load_model('Models/fungi_classifier_model5_DA.h5')
         img_crops=np.array(img_crops)
-        img_crops = img_crops.reshape((img_crops.shape[0], M, N, 1))
+        img_crops = img_crops.reshape((img_crops.shape[0], IMG_SHAPE[0], IMG_SHAPE[1], 1))
         pred_prob = model.predict(img_crops)
         pred_prob=pred_prob*100
         np.set_printoptions(formatter={'float_kind':"{:.2f}".format})
