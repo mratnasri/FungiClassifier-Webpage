@@ -7,7 +7,8 @@ app = Flask(__name__)
 
 @app.route('/')  
 def upload():  
-    return render_template("inputFile.html")
+    labels=np.loadtxt('labels.csv', dtype= str, delimiter=',')
+    return render_template("inputFile.html",labels=labels)
 
 @app.route('/about')  
 def about():  
@@ -16,7 +17,8 @@ def about():
 @app.route('/output', methods = ['POST'])
 def fungiClassification():
     if request.method == 'POST':
-        labels = ['C. auris','C. krusei', 'C. tropicalis']
+        #labels = ['C. auris','C. krusei', 'C. tropicalis']
+        labels=np.loadtxt('labels.csv', dtype= str, delimiter=',')
         img_crops=[]
         f = request.files['image']  
         f.save('static/'+f.filename)  
@@ -28,6 +30,14 @@ def fungiClassification():
         img = cv2.imread('static/'+f.filename)
         #img = load_img(fn)
         img = np.array(img, dtype='uint8')
+        if (img.shape[0]>img.shape[1]):
+            img=np.rot90(img, 1) # Counter-Clockwise
+        if(img.shape[1]>1200):
+            r = 1200.0/ img.shape[1]
+            dim = (1200, int(img.shape[0] * r))
+            # perform the actual resizing of the image
+            img = cv2.resize(img, dim)
+            print("resized")
         #cv2.imshow('img',img)
         # Convert into grayscale
         gray_img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
@@ -63,7 +73,7 @@ def fungiClassification():
                 #crop = crop.astype('float32')
                 #cv2.imshow('crop',crop)
                 #cv2.waitKey(0)
-        model = load_model('Models/fungi_classifier_model5_DA.h5')
+        model = load_model('Models/fungi_classifier_model5_DB2_DA.h5')
         img_crops=np.array(img_crops)
         img_crops = img_crops.reshape((img_crops.shape[0], IMG_SHAPE[0], IMG_SHAPE[1], 1))
         pred_prob = model.predict(img_crops)
