@@ -25,7 +25,7 @@
       />
       <div class="sec-head" style="margin-top: 3%;">
         <h3><strong>
-          Upload the gram stain image which has to be checked for type of fungus ({% for label in labels%}{{label}}, {%endfor %}).
+          Upload the gram stain image which has to be checked for type of fungus ({% for label in labels%}{{label}}{{", " if not loop.last else ""}}{%endfor %}).
         </strong></h3>
       </div>
       <br />
