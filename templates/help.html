@@ -1,6 +1,6 @@
 <html>
   <head>
-    <title>fungalDiagnosis-About Us</title>
+    <title>fungalDiagnosis-Help</title>
     <link
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
@@ -13,7 +13,6 @@
         <div style="margin: auto; padding-bottom: 2%;width: 40%; float: left;"><i>fungal</i>Diagnosis</div>
         <div style="margin: auto;float: right; width: 55%; text-align: right;" ><i><h3> Save time. Save life.</h3></i></div>
       </div>
-
       <br />
       <div id="navigation">
         <a href="/">Home</a>
@@ -21,12 +20,12 @@
         <a href="/about">About Us</a>
       </div>
       <div class="sec-head">
-        <h2><strong>About us</strong></h2>
+        <h2><strong>Help</strong></h2>
       </div>
       <div class="content">
         <p>
         <strong>
-          This is an application to detect the type of fungi in the uploaded gram stain image.
+          Upload the gram stain image which has to be checked for type of fungus ({% for label in labels%}{{label}}{{", " if not loop.last else ""}}{%endfor %}).
         </strong>
         </p>
       </div>

@@ -8,13 +8,19 @@ app = Flask(__name__)
 
 @app.route('/')
 def upload():
-    labels = np.loadtxt('labels.csv', dtype=str, delimiter=',')
-    return render_template("inputFile.html", labels=labels)
+
+    return render_template("inputFile.html")
 
 
 @app.route('/about')
 def about():
     return render_template("aboutUs.html")
+
+
+@app.route('/help')
+def help():
+    labels = np.loadtxt('labels.csv', dtype=str, delimiter=',')
+    return render_template("help.html", labels=labels)
 
 
 @app.route('/output', methods=['POST'])
@@ -82,7 +88,7 @@ def fungiClassification():
         img_crops = img_crops.reshape(
             (img_crops.shape[0], IMG_SHAPE[0], IMG_SHAPE[1], 1))
         pred_prob = model.predict(img_crops)
-        pred_prob = pred_prob*100
+        pred_prob = pred_prob
         np.set_printoptions(formatter={'float_kind': "{:.2f}".format})
         print("pred probabilities: ", pred_prob)
         #pred_class = model.predict_classes(x_test)

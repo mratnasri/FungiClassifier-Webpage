@@ -1,6 +1,6 @@
 <html>
   <head>
-    <title>Fungi Classifier-Output</title>
+    <title>fungalDiagnosis-Output</title>
     <link
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
@@ -10,11 +10,13 @@
   <body>
     <div style="margin: 2%;">
       <div class="main-head2">
-        <div style="margin: auto; padding-bottom: 2%;">Fungi Classifier</div>
+        <div style="margin: auto; padding-bottom: 2%; width: 40%; float: left;"><i>fungal</i>Diagnosis</div>
+        <div style="margin: auto;float: right; width: 55%; text-align: right;" ><i><h3> Save time. Save life.</h3></i></div>
       </div>
       <br />
       <div id="navigation">
         <a href="/">Home</a>
+        <a href="/help">Help</a>
         <a href="/about">About Us</a>
       </div>
       <div style="margin:auto; width: 60%; border: 4px solid #030433; padding: 10px;">
@@ -29,9 +31,9 @@
     <div style="margin:auto; width: 60%; border: 4px solid #030433; padding: 10px;">
     <div width=30% align="left">
       
-      <h4><strong>The probability of {{labels[argsort_avg_prob[-1]]}} is: {{'{:.2f}'.format(avg_prob[argsort_avg_prob[-1]])}}%</strong></h4>
-      <h4><strong>The probability of {{labels[argsort_avg_prob[-2]]}} is: {{'{:.2f}'.format(avg_prob[argsort_avg_prob[-2]])}}%</strong></h4>
-      <h4><strong>The probability of {{labels[argsort_avg_prob[-3]]}} is: {{'{:.2f}'.format(avg_prob[argsort_avg_prob[-3]])}}%</strong></h4>
+      <h4><strong>The probability of {{labels[argsort_avg_prob[-1]]}} is: {{'{:.2f}'.format(avg_prob[argsort_avg_prob[-1]])}}</strong></h4>
+      <h4><strong>The probability of {{labels[argsort_avg_prob[-2]]}} is: {{'{:.2f}'.format(avg_prob[argsort_avg_prob[-2]])}}</strong></h4>
+      <h4><strong>The probability of {{labels[argsort_avg_prob[-3]]}} is: {{'{:.2f}'.format(avg_prob[argsort_avg_prob[-3]])}}</strong></h4>
     </div>
   </div>
   </body>
